@@ -41,8 +41,12 @@ const EmployeeContextProvider = (props) =>{
           phone: "(480) 631-2097",
         },
       ]);
+
+    const addEmployee = (name,email,address,phone) =>{
+      setEmployees([...employees,{id:uuidv4(),name,email,address,phone}])
+    } 
     return(
-        <EmployeeContext.Provider value={{employees}}>
+        <EmployeeContext.Provider value={{employees, addEmployee}}>
             {props.children}
         </EmployeeContext.Provider>
     )
